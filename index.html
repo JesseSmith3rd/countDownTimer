@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CountDown Timer JS</title>
+  <span id="countDown" class="timer"></span>
+</head>
+<body>
+  <script>
+    var seconds = 600;
+
+    function secondsPassed() {
+      var minutes = Math.round((seconds - 30) / 60);
+      var remainingSeconds = seconds % 60;
+
+      if(remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;
+      }
+      document.getElementById('countDown').innerHTML = minutes + ":" + remainingSeconds;
+      if(seconds === 0) {
+        clearInterval(countDownTimer);
+      document.getElementById('count').innerHTML = "Done";
+    } else {
+      seconds --;
+    }
+    }
+    var countDownTimer = setInterval("secondsPassed()", 1000);
+  </script>
+</body>
+</html>
